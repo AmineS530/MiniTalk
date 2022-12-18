@@ -1,5 +1,6 @@
+./vscode/
+
 # Prerequisites
-.Ds_store
 *.d
 
 # Object files
@@ -51,3 +52,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+pft/
+ft_printf_tester/
