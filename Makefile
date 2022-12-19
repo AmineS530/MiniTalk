@@ -6,20 +6,30 @@ NAME = minitalk
 
 FTPRINTF = ft_printf/
 
-LIBFT = Libft.a/
+FTPRINTF_LIB = ft_printf/libftprintf.a
+
+LIBFT = libft.a/
+
+LIBFT_LIB = libft.a/libft.a
 
 SRC = server.c client.c
 
 OBJ = $(SRC:.c=.o)
 
-all : libft ftprintf server client
+all : $(FTPRINTF_LIB) $(LIBFT_LIB) server client
 
 $(NAME): all
 
-libft :
+server: server.o $(FTPRINTF_LIB) $(LIBFT_LIB)
+	$(CC) $(CFLAGS) $(LIBFT_LIB) $(FTPRINTF_LIB) server.o -o server
+
+client: server client.o $(FTPRINTF_LIB) $(LIBFT_LIB)
+	$(CC) $(CFLAGS) $(LIBFT_LIB) $(FTPRINTF_LIB) client.o -o client
+
+$(LIBFT_LIB) :
 	make -C $(LIBFT)
 
-ftprintf:
+$(FTPRINTF_LIB):
 	make -C $(FTPRINTF)
 
 clean:
