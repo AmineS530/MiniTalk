@@ -6,13 +6,21 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:27:02 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/19 16:14:19 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/20 15:18:20 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int main(int argc, char *argv[])
+static void	signal_send(int sign)
+{
+	static int	i;
+
+	if (sign == SIGUSR1)
+		i++;
+}
+
+int	main(int argc, char *argv[])
 {
 	if (argc == 3)
 	{
@@ -22,7 +30,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		ft_printf("Usage: ./client [PID] [String to send]");
+		ft_printf("Usage: ./client [PID] [String to send]\n");
 		return (1);
 	}
 	return (0);

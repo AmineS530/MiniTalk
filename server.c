@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:51:27 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/19 17:51:37 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/20 13:01:38 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	ft_printf("The server's PID is %d", getpid());
+	ft_printf("The server's PID is %d\n", getpid());
 	while (1)
 	{
 		pause();
