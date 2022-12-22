@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:27:02 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/21 15:37:23 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/22 20:01:19 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int argc, char *argv[])
 		ft_printf("Characters Sent By The Client: %d \n", ft_strlen(argv[2]));
 		signal(SIGUSR1, signal_send);
 		signal(SIGUSR2, signal_send);
-		signal_handler(ft_atoi(argv[1]),argv[2]);
+		signal_handler(ft_atoi(argv[1]), argv[2]);
 	}
 	else
 	{
