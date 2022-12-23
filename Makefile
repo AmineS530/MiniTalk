@@ -20,10 +20,10 @@ all : $(FTPRINTF_LIB) $(LIBFT_LIB) server client
 
 $(NAME): all
 
-server: server.o $(FTPRINTF_LIB) $(LIBFT_LIB)
+server: server.o $(FTPRINTF_LIB) $(LIBFT_LIB) minitalk.h
 	$(CC) $(CFLAGS) $(LIBFT_LIB) $(FTPRINTF_LIB) server.o -o server
 
-client: server client.o $(FTPRINTF_LIB) $(LIBFT_LIB)
+client: server client.o $(FTPRINTF_LIB) $(LIBFT_LIB) minitalk.h
 	$(CC) $(CFLAGS) $(LIBFT_LIB) $(FTPRINTF_LIB) client.o -o client
 
 $(LIBFT_LIB) :
