@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:27:02 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/23 15:04:29 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/23 18:28:07 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	signal_cmp(int placeholder)
 {
-	if (placeholder == SIGUSR1)
+	if (placeholder == SIGUSR2)
 		return ;
 }
 
@@ -51,9 +51,9 @@ static void	signal_handler(int s_pid, char *str)
 		while (j >= 0)
 		{
 			if (owo >> j & 1)
-				kill(s_pid, SIGUSR2);
-			else
 				kill(s_pid, SIGUSR1);
+			else
+				kill(s_pid, SIGUSR2);
 			j--;
 			usleep(690);
 		}
@@ -76,7 +76,7 @@ int	main(int argc, char *argv[])
 		}
 		ft_printf("%sCharacters Sent From The Client: %d\n",
 			GREEN, ft_strlen(argv[2]));
-		signal(SIGUSR1, signal_cmp);
+		signal(SIGUSR2, signal_cmp);
 		signal_handler(the_pid, argv[2]);
 	}
 	else
