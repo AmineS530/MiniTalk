@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:51:27 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/23 18:40:19 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/23 18:43:26 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
 	static char	owo;
 
 	(void)placeholder;
-	if ((global_pid != thingy->si_pid) | !global_pid)
+	if ((global_pid != thingy->si_pid) || !global_pid)
 	{
 		global_pid = thingy->si_pid;
 		i = 0;
