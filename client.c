@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:27:02 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/23 18:28:07 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/23 18:37:56 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	signal_handler(int s_pid, char *str)
 			else
 				kill(s_pid, SIGUSR2);
 			j--;
-			usleep(690);
+			usleep(750);
 		}
 	}
 }
