@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:51:27 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/24 14:04:43 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/24 15:12:52 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 pid_t	g_pid = 0;
 
-static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
+static void	global_pid_checker(siginfo_t *thingy, int *i, char *owo)
 {
-	static int	i;
-	static char	owo;
-
-	(void)placeholder;
 	if (!g_pid)
 		g_pid = thingy->si_pid;
 	if ((g_pid != thingy->si_pid))
@@ -28,6 +24,15 @@ static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
 		i = 0;
 		owo = 0;
 	}
+}
+
+static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
+{
+	static int	i;
+	static char	owo;
+
+	(void)placeholder;
+	global_pid_checker(thingy, &i, &owo);
 	owo = owo << 1 | (sig == SIGUSR2);
 	if (++i == 8)
 	{
