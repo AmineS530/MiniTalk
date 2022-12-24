@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 17:51:27 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/24 19:44:30 by asadik           ###   ########.fr       */
+/*   Created: 2022/12/24 20:28:48 by asadik            #+#    #+#             */
+/*   Updated: 2022/12/24 20:37:13 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(void)
 {
 	struct sigaction	action;
 
-	ft_printf("%sThe server's PID is ~> %d <~\n", YELLOW, getpid());
+	ft_printf("%sThe server's PID is ~> %d <~\n %s", YELLOW, getpid(), CYAN);
 	action.__sigaction_u.__sa_sigaction = handling_signal;
 	action.sa_flags = SA_SIGINFO;
 	while (TRUE)

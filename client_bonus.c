@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:27:02 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/24 19:49:27 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/24 20:35:55 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	signal_cmp(int placeholder)
 	i = 0;
 	if (placeholder == SIGUSR1)
 		g_recieved++;
+	return;
 }
 
 int	pid_checker(char *argv1)
@@ -84,10 +85,7 @@ int	main(int argc, char *argv[])
 		signal(SIGUSR1, signal_cmp);
 		signal(SIGUSR2, signal_cmp);
 		signal_handler(the_pid, argv[2]);
-		while (1)
-		{
-			pause();
-		}
+		ft_printf("Character recieved by the server %d",g_recieved);
 	}
 	else
 	{
