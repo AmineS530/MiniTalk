@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:27:02 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/23 20:05:04 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/24 13:58:23 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	signal_cmp(int placeholder)
 {
-	if (placeholder == SIGUSR2)
+	if (placeholder == SIGUSR1)
 		return ;
 }
 
@@ -51,11 +51,11 @@ static void	signal_handler(int s_pid, char *str)
 		while (j >= 0)
 		{
 			if (owo >> j & 1)
-				kill(s_pid, SIGUSR1);
-			else
 				kill(s_pid, SIGUSR2);
+			else
+				kill(s_pid, SIGUSR1);
 			j--;
-			usleep(750);
+			usleep(690);
 		}
 	}
 }
