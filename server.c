@@ -6,25 +6,24 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:51:27 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/24 15:56:43 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/24 17:11:38 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-pid_t	g_pid = 0;
-
 static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
 {
-	static int	i;
-	static char	owo;
+	static int		i;
+	static char		owo;
+	static pid_t	c_pid;
 
 	(void)placeholder;
-	if (!g_pid)
-		g_pid = thingy->si_pid;
-	if ((g_pid != thingy->si_pid))
+	if (!c_pid)
+		c_pid = thingy->si_pid;
+	if ((c_pid != thingy->si_pid))
 	{
-		g_pid = thingy->si_pid;
+		c_pid = thingy->si_pid;
 		i = 0;
 		owo = 0;
 	}
@@ -33,14 +32,10 @@ static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
 	{
 		i = 0;
 		if (!owo)
-		{
-			kill(g_pid, SIGUSR2);
-			g_pid = 0;
-			return ;
-		}
+			kill(c_pid, SIGUSR2);
 		ft_printf("%s%c", CYAN, owo);
 		owo = 0;
-		kill(g_pid, SIGUSR1);
+		kill(c_pid, SIGUSR1);
 	}
 }
 
