@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:27:02 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/24 15:13:56 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/24 16:05:40 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int	main(int argc, char *argv[])
 		ft_printf("%sCharacters Sent From The Client: %d\n",
 			GREEN, ft_strlen(argv[2]));
 		signal(SIGUSR1, signal_cmp);
-		signal(SIGUSR2, signal_cmp);
 		signal_handler(the_pid, argv[2]);
 	}
 	else
