@@ -1,4 +1,5 @@
 # Prerequisites
+.vscode
 .Ds_store
 *.d
 
