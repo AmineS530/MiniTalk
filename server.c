@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:51:27 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/24 17:11:38 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/26 14:19:28 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
 		i = 0;
 		if (!owo)
 			kill(c_pid, SIGUSR2);
-		ft_printf("%s%c", CYAN, owo);
+		ft_printf("%c", owo);
 		owo = 0;
 		kill(c_pid, SIGUSR1);
 	}
@@ -43,7 +43,7 @@ int	main(void)
 {
 	struct sigaction	action;
 
-	ft_printf("%sThe server's PID is ~> %d <~\n", YELLOW, getpid());
+	ft_printf("%sThe server's PID is ~> %d <~\n%s", YELLOW, getpid(), CYAN);
 	action.__sigaction_u.__sa_sigaction = handling_signal;
 	action.sa_flags = SA_SIGINFO;
 	while (TRUE)

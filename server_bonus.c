@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:28:48 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/24 20:37:13 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/26 13:54:37 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
 		i = 0;
 		owo = 0;
 	}
-	owo = owo << 1 | (sig == SIGUSR2);
+	owo = owo | (sig == SIGUSR2);
 	if (++i == 8)
 	{
 		i = 0;
@@ -37,6 +37,8 @@ static void	handling_signal(int sig, siginfo_t *thingy, void *placeholder)
 		owo = 0;
 		kill(c_pid, SIGUSR1);
 	}
+	else
+		owo <<= 1;
 }
 
 int	main(void)
