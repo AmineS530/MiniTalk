@@ -6,7 +6,7 @@
 /*   By: asadik <asadik@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:20:22 by asadik            #+#    #+#             */
-/*   Updated: 2022/12/23 18:16:20 by asadik           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:30:07 by asadik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@
 # include <signal.h>
 # include <unistd.h>
 # include "ft_printf/ft_printf.h"
-# include "Libft.a/libft.h"
+# include "libft.a/libft.h"
 #endif
